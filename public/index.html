@@ -1,51 +1,86 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Chatbot Nemotron</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="chat-container">
 
-        <div class="chat-header">
-            <h1>Chatbot AI</h1>
-        </div>
-
-        <div id="chat-box" class="chat-box">
-
-            <div class="message bot">
-                <div class="message-content">
-Halo! Ada yang bisa saya bantu?
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-left">
+                <div class="bot-avatar">AI</div>
+                <div class="header-title">
+                    <h1>Chatbot AI</h1>
+                    <div class="status-bar">
+                        <span id="status-dot" class="status-dot"></span>
+                        <span id="status-text" class="status-text">Online • Siap membantu</span>
+                    </div>
                 </div>
             </div>
 
+            <div class="header-actions">
+                <button type="button" id="theme-btn" class="action-btn" title="Ganti Tema Tampilan">
+                    <span id="theme-icon">☀️</span>
+                    <span id="theme-label" class="btn-label">Light</span>
+                </button>
+                <button type="button" id="new-chat-btn" class="action-btn primary-action" title="Mulai Obrolan Baru">
+                    <span>+</span>
+                    <span class="btn-label">Baru</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Area Chat -->
+        <div id="chat-box" class="chat-box">
+            <div class="message bot">
+                <div class="message-wrapper">
+                    <div class="message-content">Halo! Ada yang bisa saya bantu?</div>
+                    <div class="message-meta">
+                        <span class="timestamp">Baru saja</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <form id="chat-form" class="chat-form">
+        <!-- Tombol Scroll ke Bawah -->
+        <button type="button" id="scroll-bottom-btn" class="scroll-bottom-btn hidden" title="Ke pesan terbaru">↓</button>
 
-            <input
-                type="text"
+        <!-- Saran Prompt Cepat -->
+        <div id="quick-prompts" class="quick-prompts">
+            <button type="button" class="prompt-chip">💡 Beri ide proyek IT</button>
+            <button type="button" class="prompt-chip">⚡ Jelaskan cara kerja REST API</button>
+            <button type="button" class="prompt-chip">🛠️ Tips optimasi performa web</button>
+        </div>
+
+        <!-- Form Input -->
+        <form id="chat-form" class="chat-form">
+            <textarea
                 id="user-input"
-                placeholder="Ketik pesan..."
+                rows="1"
+                placeholder="Ketik pesan... (Enter kirim, Shift+Enter baris baru)"
                 autocomplete="off"
                 required
-            >
+            ></textarea>
 
-            <button type="submit">
-                Kirim
+            <button type="submit" id="send-btn" title="Kirim pesan">
+                <span class="send-text">Kirim</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
             </button>
-
         </form>
 
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
